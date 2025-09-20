@@ -46,3 +46,15 @@ function showFilmDetails(film){
     buyTicketBtn.textContent = available <= 0 ? "Sold Out" : "Buy Ticket";
 
 }
+
+// adding event listener to film list for clicking movies
+filmList.addEventListener('click', (e) =>{
+    if(e.target.tagName === 'LI'){
+        const filmId = e.target.dataset.id;
+        fetch(`http://localhost:3000/films/${filmId}`)
+        .then(res => res.json())
+        .then(film => {
+            showFilmDetails(film);
+        });
+    }
+});
