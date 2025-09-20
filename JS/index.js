@@ -5,8 +5,9 @@ const runtime = document.getElementById('runtime');
 const showtime = document.getElementById('showtime');
 const availableTickets = document.getElementById('available-tickets');
 const description = document.getElementById('description');
-const buyTicket = document.getElementById('buy-ticket');
+const buyTicketBtn = document.getElementById('buy-ticket');
 
+// this function fetches the films then diplays the available film list
 let currentFilm = null;
 
 function fetchFilms(){
@@ -28,4 +29,20 @@ function fetchFilms(){
         });
         showFilmDetails(films[0]);
     });
+}
+
+// to show film details on the right panel
+
+function showFilmDetails(film){
+    currentFilm = film;
+    poster.src= film.poster;
+    title.textContent = `Runtime: ${film.runtime} minutes`;
+    showtime.textContent =`Showtime: ${film.showtime}`;
+    const available = film.capacity - film.tickets_sold;
+    availableTickets.textContent = `Available Tickets: ${available > 0 ? available : "Sold Out"}`;
+    description.textContent = film.description;
+
+    buyTicketBtn.disabled = available <= 0;
+    buyTicketBtn.textContent = available <= 0 ? "Sold Out" : "Buy Ticket";
+
 }
