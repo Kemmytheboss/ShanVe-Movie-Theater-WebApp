@@ -108,3 +108,43 @@ function updatedFilmItems(film) {
         }
     });
 }
+
+// deleteing movie from the list and server 
+films.forEach(film => {
+  const li = document.createElement('li');
+  li.textContent = film.title;
+  li.classList.add('film-item');
+  li.dataset.id = film.id;
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = 'Delete';
+  deleteBtn.classList.add('delete-btn');
+  li.appendChild(deleteBtn);
+
+  filmList.appendChild(li);
+});
+
+// handle delete click
+filmsList.addEventListener('click', (e) => {
+  if (e.target.classList.contains('delete-btn')) {
+    const filmId = e.target.parentElement.dataset.id;
+    fetch(`http://localhost:3000/films/${filmId}`, {
+      method: 'DELETE'
+    })
+    .then(() => {
+      e.target.parentElement.remove();
+
+      // Optionally, clear details if deleted movie is showing
+      if(currentFilm && currentFilm.id === filmId) {
+        poster.src = '';
+        title.textContent = '';
+        runtime.textContent = '';
+        showtime.textContent = '';
+        availableTickets.textContent = '';
+        description.textContent = '';
+        buyTicketBtn.disabled = true;
+      }
+    });
+  }
+});
+
