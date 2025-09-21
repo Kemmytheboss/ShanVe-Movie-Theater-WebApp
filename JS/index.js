@@ -90,3 +90,21 @@ buyTicketBtn.addEventListener('click', () =>{
     })
 })
 
+// updating the list item after ticket purchase
+
+function updatedFilmItems(film) {
+    const items = document.querySelectorAll('#films li')
+    items.forEach(item => {
+        if(item.dataset.id === film.id) {
+            const available = film.capacity - film.tickets_sold;
+            if (available <= 0){
+                item.classList.add('sold-out');
+                item.textContent = `${film.title} ('Sold Out)`;
+            }
+            else {
+                item.classList.remove('sold-out');
+                item.textContent = film.title;
+            }
+        }
+    });
+}
