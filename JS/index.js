@@ -58,3 +58,17 @@ filmList.addEventListener('click', (e) =>{
         });
     }
 });
+
+// handle buying tickets
+buyTicketBtn.addEventListener('click', () =>{
+    if(!currentFilm) return;
+    let ticketsSold = currentFilm.tickets_sold;
+    let capacity = currentFilm.capacity;
+
+
+    if(ticketsSold >= capacity){
+        alert('Sorry, this movie is sold out!');
+        return;
+    }
+    ticketsSold++;
+})
