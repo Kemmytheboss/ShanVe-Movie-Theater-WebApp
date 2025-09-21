@@ -71,4 +71,22 @@ buyTicketBtn.addEventListener('click', () =>{
         return;
     }
     ticketsSold++;
+
+    fetch(`http://localhost:3000/films/${currentFilm.id}`, {
+        method: 'PATCH',
+        header: {
+           ' Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify ({
+            tickets_sold: ticketsSold
+        })
+    })
+    .then(res => res.json)
+    .then(updatedFilm => {
+        currentFilm  = updatedFilm;
+        showFilmDetails(updatedFilm);
+        updatedFilmItems(updatedFilm);
+    })
 })
+
