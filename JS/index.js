@@ -148,3 +148,11 @@ filmsList.addEventListener('click', (e) => {
   }
 });
 
+fetch('http://localhost:3000/tickets', {
+  method: 'POST',
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify({
+    film_id: currentFilm.id,
+    number_of_tickets: 1
+  })
+});

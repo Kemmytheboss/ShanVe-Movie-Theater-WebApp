@@ -1,0 +1,116 @@
+/* Reset some default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Layout: movie list and movie details */
+#container {
+  display: flex;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Movie list on the left */
+#films {
+  list-style: none;
+  width: 250px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  height: 500px;
+  overflow-y: auto;
+  border-radius: 5px;
+}
+
+#films li {
+  padding: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+#films li:hover {
+  background-color: #f0f0f0;
+}
+
+.film-item {
+  font-weight: 500;
+}
+
+.sold-out {
+  color: red;
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+/* Movie details panel */
+#movie-details {
+  flex-grow: 1;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#poster {
+  width: 100%;
+  height: auto;
+  max-height: 350px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+#title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#runtime,
+#showtime,
+#available-tickets,
+#description {
+  margin-bottom: 10px;
+}
+
+#buy-ticket {
+  padding: 10px 20px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#buy-ticket:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.delete-btn {
+  margin-left: 10px;
+  padding: 2px 6px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 12px;
+  cursor: pointer;
+}
