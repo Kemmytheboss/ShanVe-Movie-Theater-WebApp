@@ -1,116 +1,76 @@
-/* Reset some default browser styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9f9f9;
-  color: #333;
-  padding: 20px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
 }
 
-h1 {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-/* Layout: movie list and movie details */
-#container {
+.container {
   display: flex;
-  gap: 40px;
-  max-width: 1000px;
-  margin: 0 auto;
+  height: 100vh;
 }
 
-/* Movie list on the left */
+/* Sidebar */
+.sidebar {
+  width: 25%;
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.sidebar h2 {
+  text-align: center;
+}
+
 #films {
   list-style: none;
-  width: 250px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  height: 500px;
-  overflow-y: auto;
-  border-radius: 5px;
+  padding: 0;
 }
 
 #films li {
   padding: 10px;
-  margin-bottom: 8px;
+  border-bottom: 1px solid #555;
   cursor: pointer;
-  border-bottom: 1px solid #eee;
-  transition: background-color 0.2s;
 }
 
 #films li:hover {
-  background-color: #f0f0f0;
+  background-color: #444;
 }
 
-.film-item {
-  font-weight: 500;
-}
-
-.sold-out {
-  color: red;
+#films li.sold-out {
+  color: gray;
   text-decoration: line-through;
-  font-style: italic;
 }
 
-/* Movie details panel */
-#movie-details {
-  flex-grow: 1;
-  max-width: 600px;
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+/* Main Content */
+.main {
+  width: 75%;
+  padding: 2rem;
+  background: white;
 }
 
-#poster {
-  width: 100%;
-  height: auto;
-  max-height: 350px;
-  margin-bottom: 20px;
-  border-radius: 5px;
+.main img {
+  width: 300px;
+  float: left;
+  margin-right: 2rem;
+  border-radius: 8px;
 }
 
-#title {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-#runtime,
-#showtime,
-#available-tickets,
-#description {
-  margin-bottom: 10px;
+.details {
+  overflow: auto;
 }
 
 #buy-ticket {
   padding: 10px 20px;
-  background-color: #2196f3;
+  background-color: #0a74da;
   color: white;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
+  margin-top: 10px;
 }
 
 #buy-ticket:disabled {
   background-color: gray;
   cursor: not-allowed;
-}
-
-.delete-btn {
-  margin-left: 10px;
-  padding: 2px 6px;
-  background-color: #e74c3c;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  font-size: 12px;
-  cursor: pointer;
 }
